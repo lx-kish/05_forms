@@ -30,6 +30,10 @@ class User extends Component {
         }
     }
 
+    updateFore = (newState) => {
+        console.log(newState)
+    }
+
     render(){
         return(
             <div className="container">
@@ -37,6 +41,7 @@ class User extends Component {
 
                     <FormFields
                         formData={this.state.formData}
+                        change={(newState) => this.updateFore(newState)}
                     />
 
                     <button type="submmit">Submit</button>
