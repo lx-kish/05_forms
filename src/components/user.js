@@ -30,8 +30,22 @@ class User extends Component {
         }
     }
 
-    updateFore = (newState) => {
-        console.log(newState)
+    updateForm = (newState) => {
+        this.setState({
+            formData:newState
+        })
+    }
+
+    submitForm = (event) => {
+        event.preventDefault();
+
+        let dataToSubmit = {};
+
+        for(let key in this.state.formData) {
+            dataToSubmit[key] = this.state.formData[key].value
+        }
+
+        console.log(dataToSubmit);
     }
 
     render(){
@@ -41,7 +55,7 @@ class User extends Component {
 
                     <FormFields
                         formData={this.state.formData}
-                        change={(newState) => this.updateFore(newState)}
+                        change={(newState) => this.updateForm(newState)}
                     />
 
                     <button type="submmit">Submit</button>
