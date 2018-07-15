@@ -13,6 +13,7 @@ firebase.initializeApp(config);
 
 const firebaseDB = firebase.database();
 
-firebaseDB.ref().on('child_added',(snapshot)=>{
-    console.log(snapshot.key,snapshot.val())
-})
+// firebaseDB.ref('users').orderByChild('lastname').equalTo('Ball').once('value')
+// .then((snapshot)=>{
+//     console.log(snapshot.val());
+// })
