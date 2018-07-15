@@ -13,13 +13,6 @@ firebase.initializeApp(config);
 
 const firebaseDB = firebase.database();
 
-firebaseDB.ref().update({
-    name:'Ralf',
-    'car/color':'black'
-})
-.then(() => {
-    console.log('data removed')
-})
-.catch((e) => {
-    console.log(e)
+firebaseDB.ref().on('child_added',(snapshot)=>{
+    console.log(snapshot.key,snapshot.val())
 })
