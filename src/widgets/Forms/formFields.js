@@ -23,9 +23,9 @@ const FormFields = (props) => {
     }
 
     const showLabel = (show, label) => {
-        return show ? 
+        return show ?
             <label>{label}</label>
-        : null
+            : null
     }
 
     const changeHandler = (event, id) => {
@@ -34,7 +34,7 @@ const FormFields = (props) => {
         newState[id].value = event.target.value;
 
         props.change(newState)
-        
+
     }
 
     const renderTemplates = (data) => {
@@ -53,6 +53,40 @@ const FormFields = (props) => {
                                 (event) => changeHandler(event, data.id)
                             }
                         />
+                    </div>
+                )
+                break;
+            case ('textarea'):
+                formTemplate = (
+                    <div>
+                        {showLabel(values.label, values.labelText)}
+                        <textarea
+                            {...values.config}
+                            value={values.value}
+                            onChange={
+                                (event) => changeHandler(event, data.id)
+                            }
+                        />
+                    </div>
+                )
+                break;
+            case ('select'):
+                formTemplate = (
+                    <div>
+                        {showLabel(values.label, values.labelText)}
+                        <select
+                            value={values.value}
+                            name={values.config.name}
+                            onChange={
+                                (event) => changeHandler(event, data.id)
+                            }
+                        >
+                            {values.config.options.map((item, i) => (
+                                <option key={i} value={item.val}>
+                                    {item.text}
+                                </option>
+                            ))}
+                        </select>
                     </div>
                 )
                 break;
