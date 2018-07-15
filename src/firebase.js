@@ -13,9 +13,12 @@ firebase.initializeApp(config);
 
 const firebaseDB = firebase.database();
 
-firebaseDB.ref('eyes').set('green')
+firebaseDB.ref().update({
+    name:'Ralf',
+    'car/color':'black'
+})
 .then(() => {
-    console.log('data saved')
+    console.log('data removed')
 })
 .catch((e) => {
     console.log(e)
