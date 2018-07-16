@@ -13,6 +13,10 @@ firebase.initializeApp(config);
 
 const firebaseDB = firebase.database();
 
+export {
+    firebaseDB
+}
+
 // firebaseDB.ref('users').orderByChild('lastname').equalTo('Ball').once('value')
 // .then((snapshot)=>{
 //     console.log(snapshot.val());
